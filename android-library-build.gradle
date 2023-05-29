@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdk ProjectConfig.compileSdk
+
+    defaultConfig {
+        minSdk ProjectConfig.minSdk
+        targetSdk ProjectConfig.targetSdk
+        versionCode ProjectConfig.versionCode
+        versionName ProjectConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Compose.composeVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation platform(Compose.composeBom)
+    implementation Compose.compiler
+    implementation Compose.ui
+    implementation Compose.uiTooling
+    implementation Compose.uiToolingPreview
+    implementation Compose.material3
+    implementation Compose.runtime
+    implementation Compose.navigation
+    implementation Compose.activityCompose
+    implementation Compose.uiUtil
+
+    implementation AndroidX.coreKtx
+    implementation AndroidX.lifecycleViewModel
+    implementation AndroidX.lifecycleRuntime
+
+    // test
+    testImplementation Junit.junit
+    androidTestImplementation Junit.junitCore
+}
