@@ -39,11 +39,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -59,10 +59,10 @@ android {
 }
 
 dependencies {
-    //implementation(project(Modules.core))
+    implementation(project(Modules.core))
     //implementation(project(Modules.coreUI))
     //implementation(project(Modules.tvShowData))
-    //implementation(project(Modules.tvShowDomain))
+    implementation(project(Modules.tvShowDomain))
     //implementation(project(Modules.tvShowPresentation))
     implementation(platform(Compose.composeBom))
     implementation(Compose.ui)
