@@ -60,10 +60,11 @@ android {
 
 dependencies {
     implementation(project(Modules.core))
-    //implementation(project(Modules.coreUI))
-    //implementation(project(Modules.tvShowData))
+    implementation(project(Modules.coreUI))
+    implementation(project(Modules.tvShowData))
     implementation(project(Modules.tvShowDomain))
-    //implementation(project(Modules.tvShowPresentation))
+    implementation(project(Modules.tvShowPresentation))
+
     implementation(platform(Compose.composeBom))
     implementation(Compose.ui)
     implementation(Compose.material3)
@@ -90,5 +91,7 @@ dependencies {
 
     // test
     testImplementation(Junit.junit)
+    androidTestImplementation(platform(Compose.composeBom))
     androidTestImplementation(Junit.junitCore)
+    androidTestImplementation(Junit.junitCompose)
 }

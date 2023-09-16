@@ -16,3 +16,6 @@ rootProject.name = "Sofa Time"
 include ':app'
 include ':core'
 include ':tvshow-domain'
+include ':core-ui'
+include ':tvshow-presentation'
+include ':tvshow-data'

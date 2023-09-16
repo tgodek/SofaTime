@@ -5,8 +5,8 @@ plugins {
      * plugin as a build dependency but not apply it to the current (root)
      * project. Don't use `apply false` in sub-projects.
      */
-    id("com.android.application") version "8.0.2" apply false
-    id("com.android.library") version "8.0.2" apply false
+    id("com.android.application") version "8.1.0" apply false
+    id("com.android.library") version "8.1.0" apply false
     id("org.jetbrains.kotlin.android") version Kotlin.version apply false
     id("org.jetbrains.kotlin.jvm") version Kotlin.version apply false
 }
@@ -20,7 +20,7 @@ buildscript {
 
     dependencies {
         classpath("com.google.gms:google-services:4.3.15")
-        classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.5")
+        classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.7")
         classpath("org.jetbrains.kotlin:kotlin-serialization:${Kotlin.version}")
     }
 }

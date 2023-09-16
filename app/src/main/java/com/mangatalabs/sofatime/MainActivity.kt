@@ -3,45 +3,25 @@ package com.mangatalabs.sofatime
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.mangatalabs.sofatime.ui.theme.SofaTimeTheme
+import androidx.navigation.compose.rememberNavController
+import coil.ImageLoader
+import org.koin.android.ext.android.inject
+import com.mangatalabs.core_ui.theme.SofaTimeTheme as Theme
 
 class MainActivity : ComponentActivity() {
+
+    private val imageLoader by inject<ImageLoader>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SofaTimeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+            Theme {
+                val navController = rememberNavController()
+                ActivityScaffold(
+                    navController = navController,
+                    imageLoader = imageLoader
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SofaTimeTheme {
-        Greeting("Android")
     }
 }
